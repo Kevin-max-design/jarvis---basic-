@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+python-dotenv
+openai
+SpeechRecognition
+pyttsx3
+pyaudio
+requests
+numpy

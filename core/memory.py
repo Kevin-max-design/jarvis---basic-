@@ -5,18 +5,14 @@ so the LLM has context for follow-up questions.
 """
 
 class ConversationMemory:
-    def __init__(self, max_turns=20):
+    def __init__(self, max_turns=20, system_prompt=None):
         self.max_turns = max_turns
         self.history = []
-        self.system_prompt = (
-            "You are JARVIS, an advanced AI assistant inspired by Iron Man's JARVIS. "
-            "You are intelligent, witty, and extremely capable. "
-            "You speak in a refined, slightly British-accented manner — polished but warm. "
-            "You are proactive, anticipating the user's needs. "
-            "Keep responses concise and actionable unless asked for detail. "
-            "You address the user as 'Sir' or 'Ma'am' occasionally. "
-            "Current capabilities: voice conversation, time queries, general knowledge. "
-            "You are aware that more capabilities (vision, tools, scheduling) are coming soon."
+        self.system_prompt = system_prompt or (
+            "You are JARVIS, an advanced AI assistant. "
+            "You are intelligent, witty, warm, and empathetic. "
+            "You speak in a polished manner — addressing the user as 'Sir' occasionally. "
+            "You can open apps, search the web, open websites, and have real conversations."
         )
 
     def add_user_message(self, message):
